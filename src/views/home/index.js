@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.scss';
 import ReactCssTransitionGroup from "react-addons-css-transition-group"
-
+import * as api from '../../api/base'
 
 
 class List extends React.Component {
@@ -32,8 +32,11 @@ class List extends React.Component {
         );
     }
 
-    testAlert(){
-        console.log(this,"this")
+    async testAlert(){
+        console.log(api.getList,"this")
+
+        let res = api.getList({page:1,limit:10});
+        // console.log(res,'res')
         this.setState({
             flag: !this.state.flag
         })
