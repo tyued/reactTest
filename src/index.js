@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'animate.css';
-// import App from './App';
+import App from './App';
 // import ShoppingList from './views/home/index'
 import * as serviceWorker from './serviceWorker';
 
-import Router from './Router'
+// import Router from './Router'
 
 ReactDOM.render(
-    // {/* <App /> */}
+    <App />,
     // <ShoppingList value='我的天啊'></ShoppingList>,
-    <Router />,
+    // <Router />,
     document.getElementById('root')
 );
 
