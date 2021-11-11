@@ -7,12 +7,12 @@ import * as api from '../../api/base'
 class List extends React.Component {
     constructor(props){
         super(props);
-        console.log(props,"props");
+        // console.log(props,"props");
         this.state = {flag:true};
     }
 
     render() {
-        console.log(this.state.flag,"flag")
+        // console.log(this.state.flag,"flag")
         let liHtml;
         if (this.state.flag){
             liHtml = <li key="amache" className='animate__animated'>CCC</li>
