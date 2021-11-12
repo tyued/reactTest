@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router, NavLink, Link, Route, Switch } from 'react-router-dom';
+import Routes from './router/index';
 
 import Home from './views/home';
 import Eval from './views/eval';
@@ -19,14 +20,10 @@ function App() {
         <div className="App">
             <div className="AppMain">
                 <Switch>
-                    <Route path="/home" component={Layouts}>
-
-                        {/* <Route path="index" component={Eval} />
-                        <Route path="list" component={ListPage} /> */}
+                    <Routes />
+                    {/* <Route path="/home" component={Layouts}>
                     </Route>
-                    {/* <Route  path='/home/a' component={Eval}/>
-                    <Route  path={`${path}/b`} component={ListPage}/> */}
-                    <Route path="/eval" component={Home} />
+                    <Route path="/eval" component={Home} /> */}
                 </Switch>
             </div>
 
