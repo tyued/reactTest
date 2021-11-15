@@ -7,14 +7,13 @@ const menus = [
     {
         key:'/home',
         title:'首页',
-        // component:'Home',
-        subs:[
-            {
-                key:'/home/list',
-                title:'测试列表',
-                component:'List'
-            }
-        ]
+        component:'Home',
+        
+    },
+    {
+        key:'/home/list',
+        title:'测试列表',
+        component:'List'
     },
     {
         key:'/eval',

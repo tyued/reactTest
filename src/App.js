@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router, NavLink, Link, Route, Switch } from 'react-router-dom';
+import ReactCssTransitionGroup from "react-addons-css-transition-group"
 import Routes from './router/index';
 
 import Home from './views/home';
@@ -12,7 +13,7 @@ function App() {
 
     // 函数组件中没有生命周期，那么可以使用 useEffect 来替代。如果你熟悉 React class 的生命周期函数，你可以把 useEffect Hook 看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个函数的组合
     useEffect(() => {
-        console.log('8899')
+        // console.log('8899')
     })
 
     return (
@@ -39,19 +40,19 @@ function App() {
                     </NavLink>
                 </div>
                 <div className="foot_nav">
-                    <Link to='/task'>
+                    <NavLink activeClassName="activ" to='/task'>
                         <div className="navImg nav-3"></div>
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className="foot_nav">
-                    <Link to='/record'>
+                    <NavLink activeClassName="activ" to='/record'>
                         <div className="navImg nav-4"></div>
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className="foot_nav">
-                    <Link to='/my'>
+                    <NavLink activeClassName="activ" to='/my'>
                         <div className="navImg nav-5"></div>
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </div>

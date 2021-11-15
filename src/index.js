@@ -5,8 +5,11 @@ import 'animate.css';
 import App from './App';
 // import ShoppingList from './views/home/index'
 import * as serviceWorker from './serviceWorker';
-
+import moment from 'moment'
 // import Router from './Router'
+
+// console.log(React,'React');
+// React.prototype.$moment = moment;
 
 ReactDOM.render(
     <App />,

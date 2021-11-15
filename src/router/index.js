@@ -5,7 +5,7 @@ import substance from './substance'
 function CRouter(){
     const getAsyncMenus = () => menus;
     const createMenu = (item) => {
-        console.log(item,substance,'item')
+        // console.log(item,substance,'item')
         return (
             <Route 
                 path = { item.path || item.key }
@@ -15,7 +15,7 @@ function CRouter(){
             />
         )
     }
-    console.log(getAsyncMenus(),'6677')
+    // console.log(getAsyncMenus(),'6677')
     return (
         <Switch>
             {getAsyncMenus().map(createMenu)}

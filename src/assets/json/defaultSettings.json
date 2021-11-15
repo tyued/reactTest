@@ -1,0 +1,14 @@
+{
+    "schoolStatisticsScope":[
+        {
+            "id": 1,
+            "name": "校级任务"
+        },{
+            "id": 2,
+            "name": "非校级任务"
+        },{
+            "id": 3,
+            "name": "学生点评"
+        }
+    ]
+}
