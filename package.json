@@ -8,7 +8,9 @@
     "@testing-library/user-event": "^7.2.1",
     "animate.css": "^4.1.1",
     "axios": "^0.24.0",
+    "echarts": "^5.2.2",
     "http-proxy-middleware": "^2.0.1",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-addons-css-transition-group": "^15.6.2",
@@ -37,7 +39,15 @@
       "no-unused-vars": "off",
       "no-mixed-spaces-and-tabs": "off",
       "no-redeclare": "off",
-      "vue/no-unused-components": "off"
+      "vue/no-unused-components": "off",
+      "no-extend-native": [
+        "error",
+        {
+          "exceptions": [
+            "String"
+          ]
+        }
+      ]
     }
   },
   "browserslist": {

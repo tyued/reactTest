@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class List extends React.Component {
-    constructor(props){
-        super(props);
-    }
     render() {
         return(
             <div className="innerPage">

@@ -6,6 +6,7 @@ const service = axios.create({
 
 service.interceptors.request.use(config =>{
     // console.log('这里是请求拦截器')
+    config.headers.Authorization = window.sessionStorage.getItem('token'); 
     return config
 }, error =>{
     Promise.reject(error)
@@ -25,8 +26,10 @@ service.interceptors.response.use(
         if (error.response) {
             switch (error.response.status) {
                 case 401:
-                setTimeout(() => {}, 2200)
-                break;
+                    setTimeout(() => {}, 2200)
+                    break;
+                default:
+                    break;
             }
             return
         }

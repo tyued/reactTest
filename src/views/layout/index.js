@@ -4,7 +4,7 @@ import ListPage from '../list';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 export default function(props){
     console.log(useRouteMatch(),'props_Layout')
-    const { path, url, params } = useRouteMatch()
+    const { path } = useRouteMatch()
     return (
         <div>
             <div>啦啦啦框架</div>

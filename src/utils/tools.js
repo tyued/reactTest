@@ -73,6 +73,8 @@ export function getCusPlanType(scope){
             return 14 //自主领取    
         case 15:
             return 15 //惩罚抵消
+        default:
+            return 1
     }
 }
 
@@ -115,10 +117,10 @@ export function uuid() {
     var d1 = Math.random() * 0xffffffff | 0;
     var d2 = Math.random() * 0xffffffff | 0;
     var d3 = Math.random() * 0xffffffff | 0;
-    return lut[d0 & 0xff] + lut[d0 >> 8 & 0xff] + lut[d0 >> 16 & 0xff] + lut[d0 >> 24 & 0xff] + '-' +
-        lut[d1 & 0xff] + lut[d1 >> 8 & 0xff] + '-' + lut[d1 >> 16 & 0x0f | 0x40] + lut[d1 >> 24 & 0xff] + '-' +
-        lut[d2 & 0x3f | 0x80] + lut[d2 >> 8 & 0xff] + '-' + lut[d2 >> 16 & 0xff] + lut[d2 >> 24 & 0xff] +
-        lut[d3 & 0xff] + lut[d3 >> 8 & 0xff] + lut[d3 >> 16 & 0xff] + lut[d3 >> 24 & 0xff];
+    return `${lut[d0 & 0xff] + lut[(d0 >> 8) & 0xff] + lut[(d0 >> 16) & 0xff] + lut[(d0 >> 24) & 0xff]}-
+        ${lut[d1 & 0xff] + lut[(d1 >> 8) & 0xff]}-${lut[((d1 >> 16) & 0x0f) | 0x40] + lut[(d1 >> 24) & 0xff]}-
+        ${lut[(d2 & 0x3f) | 0x80] + lut[(d2 >> 8) & 0xff]}-${lut[(d2 >> 16) & 0xff] + lut[(d2 >> 24) & 0xff] +
+        lut[d3 & 0xff] + lut[(d3 >> 8) & 0xff] + lut[(d3 >> 16) & 0xff] + lut[(d3 >> 24) & 0xff]}`;
 }
 
 export function isArray(a) {
@@ -137,36 +139,39 @@ export function isBoolean(s) {
     return typeof s === "boolean";
 }
 
-String.prototype.colorRGBA = function (opacity = 1) {
-    // 16进制颜色值的正则
-    var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
-    // 把颜色值变成小写
-    var color = this.toLowerCase();
-    if (reg.test(color)) {
-        // 如果只有三位的值，需变成六位，如：#fff => #ffffff
-        if (color.length === 4) {
-            var colorNew = "#";
-            for (var i = 1; i < 4; i += 1) {
-            colorNew += color.slice(i, i + 1).concat(color.slice(i, i + 1));
-            }
-            color = colorNew;
-        }
-      // 处理六位的颜色值，转为RGB
-        var colorChange = [];
-        for (var i = 1; i < 7; i += 2) {
-            colorChange.push(parseInt("0x" + color.slice(i, i + 2)));
-        }
-        return "rgba(" + colorChange.join(",") + ","+ opacity+")";
-    } else {
-        return color;
-    }
-};
+// String.prototype.colorRGBA = function (opacity = 1) {
+//     // 16进制颜色值的正则
+//     var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+//     // 把颜色值变成小写
+//     var color = this.toLowerCase();
+//     if (reg.test(color)) {
+//         // 如果只有三位的值，需变成六位，如：#fff => #ffffff
+//         if (color.length === 4) {
+//             var colorNew = "#";
+//             for (let i = 1; i < 4; i += 1) {
+//             colorNew += color.slice(i, i + 1).concat(color.slice(i, i + 1));
+//             }
+//             color = colorNew;
+//         }
+//       // 处理六位的颜色值，转为RGB
+//         var colorChange = [];
+//         for (let i = 1; i < 7; i += 2) {
+//             colorChange.push(parseInt("0x" + color.slice(i, i + 2)));
+//         }
+//         return "rgba(" + colorChange.join(",") + ","+ opacity+")";
+//     } else {
+//         return color;
+//     }
+// };
 
 // 数组递增递减 asc desc
 export const getSortFun = (sortBy,order) => {
-    let ordAlpah = (order == 'desc') ? '<' : '>';           
-    let sortFun = new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
-    return sortFun;
+    let ordAlpah = (order === 'desc') ? '<' : '>';           
+    let sortFun = (a,b) =>{
+        return ordAlpah==='>'? (a[sortBy] > b[sortBy]?1:-1) : (a[sortBy] < b[sortBy]?1:-1)
+    }
+    // new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
+    return sortFun
 };
 
 
@@ -179,7 +184,7 @@ export const findDimensionById = (dimensionId,dimensionList) => {
     let dList = dimensionList||[];
     let curDimension;
     for(let i=0;i<dList.length;i++){
-        if(dList[i].dimensionId == dimensionId){
+        if(dList[i].dimensionId === dimensionId){
             return dList[i]
         }
         if(dList[i].children && dList[i].children.length>0){

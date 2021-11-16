@@ -35,6 +35,7 @@ class Summary extends React.Component{
             begin: timeInfo.begin,
             end: timeInfo.end
         };
+        console.log(timeInfo,'timeInfo---summary')
         let [res1, res2] = await Promise.all([
             api.getTeacherJionAnalysis(params),
             api.getStudentJionAnalysis({...params, gradeCode:''})
