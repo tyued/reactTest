@@ -4,6 +4,7 @@ import './home.scss';
 // import * as api from '../../api/base';
 import Summary from '../../component/summary';
 import Develop from '../../component/develop';
+// import toast from '../../component/toast/toast';
 
 
 class HomePage extends React.Component {
@@ -17,7 +18,18 @@ class HomePage extends React.Component {
     }
 
     componentDidMount(){
+        // console.log(window,window.toast)
+        // setTimeout(() => {
+        //     window.toast.show(true,0,'提示啦啦啦')
+        // }, 2000);
+        
+        // setInterval(()=>{
+            // toast.show(true,0,'提示啦啦啦')
+        // },5000)
+        // loading.show(true)
         // console.log("这里是父组件初始化")
+        // console.log(loading.show(false),'调用了render')
+        // console.log(loading)
     }
 
     render() {

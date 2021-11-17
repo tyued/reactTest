@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import * as api from '../../api/base';
 import './index.scss';
-import { getSortFun } from '../../utils/tools';
+// import { getSortFun } from '../../utils/tools';
 import defaultSettings from "../../assets/json/defaultSettings.json";
 import Radar from '../../component/echarts/radar'
 
@@ -28,6 +28,12 @@ class Develop extends React.Component {
 
     componentDidMount() {
         this.init()
+    }
+
+    componentWillUnmount = () => {
+        this.setState = (state,callback)=>{
+          return;
+        };
     }
     
     shouldComponentUpdate(props,states,content){
@@ -68,20 +74,25 @@ class Develop extends React.Component {
     }
 
     getDetailInfoByClass = async () => {
-        let evlScope = this.state.selTotil.length === 2? 0 : this.state.selTotil[0].id   //0全部  1校级,2非校级
-        let params = {
-            schoolCode: '1544',
-            gradeCode: this.state.teachGradeList[this.state.activIndex].gradeCode,
-            begin: this.state.curXnXq.gzkssj,
-            end: this.state.curXnXq.gzjssj,
-            evlScope: evlScope,
-        };
-        let [res1,res2,res3] = await Promise.all([
-            api.getGradeRulesSummary(params),
-            api.getGradeDimensionSummary(params),
-            api.getGradeDimensionRadar(params)
-        ])
-        this.formatData(res1,res2,res3);
+        // try{
+            let evlScope = this.state.selTotil.length === 2? 0 : this.state.selTotil[0].id   //0全部  1校级,2非校级
+            let params = {
+                schoolCode: '1544',
+                gradeCode: this.state.teachGradeList[this.state.activIndex].gradeCode,
+                begin: this.state.curXnXq.gzkssj,
+                end: this.state.curXnXq.gzjssj,
+                evlScope: evlScope,
+            };
+            let [res1,res2,res3] = await Promise.all([
+                api.getGradeRulesSummary(params),
+                api.getGradeDimensionSummary(params),
+                api.getGradeDimensionRadar(params)
+            ])
+            this.formatData(res1,res2,res3);
+        // }catch(e){
+
+        // }
+        
     }
 
     formatData(res1,res2,res3){
@@ -115,8 +126,8 @@ class Develop extends React.Component {
                 cArr = {name:'',data:[]};
             }
             if(!res3.value || !res3.value.length) return
-            let sortList = res3.value.sort(getSortFun('proport', "desc"))
-            console.log(sortList[0],'@@')
+            // let sortList = res3.value.sort(getSortFun('proport', "desc"))
+            // console.log(sortList[0],'@@')
             // let { proport } = sortList[0];
             // proport = proport?proport*100:0
             for(let i=0;i<res3.value.length;i++){
@@ -164,11 +175,11 @@ class Develop extends React.Component {
             }
         }
         this.setState({rulesInfo,radarData})
-        console.log(this.state,'develop的this.state')
+        // console.log(this.state,'develop的this.state')
     }
     
     render() {
-        console.log('渲染时间:',(new Date()).valueOf());
+        // console.log('渲染时间:',(new Date()).valueOf());
         return (
             <div className={["developMain container",this.props.className].join(' ')}>
                 <div className="title">

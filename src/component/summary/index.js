@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.scss';
-import * as api from '../../api/base'
-import { getSelTimeArea } from '../../utils/tools'
+import * as api from '../../api/base';
+import { getSelTimeArea } from '../../utils/tools';
+// import toast from '../../component/toast/toast';
 
 class Summary extends React.Component{
 
@@ -23,6 +24,12 @@ class Summary extends React.Component{
         // console.log('这里是summary初始化')
         this.init();
     }
+    
+    componentWillUnmount = () => {
+        this.setState = (state,callback)=>{
+          return;
+        };
+    }
 
     init(){
         this.getInitData();
@@ -35,7 +42,7 @@ class Summary extends React.Component{
             begin: timeInfo.begin,
             end: timeInfo.end
         };
-        console.log(timeInfo,'timeInfo---summary')
+        // console.log(timeInfo,'timeInfo---summary')
         let [res1, res2] = await Promise.all([
             api.getTeacherJionAnalysis(params),
             api.getStudentJionAnalysis({...params, gradeCode:''})

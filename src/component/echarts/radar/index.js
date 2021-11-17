@@ -59,11 +59,11 @@ class Radar extends React.Component {
             this.customeOption.radius='60%';
         }
         
-        console.log(echarts,'echarts')
+        // console.log(echarts,'echarts')
         if(this.props.radarData.length > 0){
             this.radarChart = echarts.init(this.radar);
             this.radarOption = this.initOption();
-            console.log(this.radarOption,'我进来以后的this.radarOption')
+            // console.log(this.radarOption,'我进来以后的this.radarOption')
             this.radarChart.setOption(this.radarOption);
         }
     }
@@ -73,7 +73,7 @@ class Radar extends React.Component {
         option.color = this.defaultColor;
         option.title = {};
         // option.title.text = "一级维度";
-        console.log(this,'this@')
+        // console.log(this,'this@')
         // 指示器显示（统计指标）
         option.data = ['维度'];
 
@@ -196,7 +196,7 @@ class Radar extends React.Component {
 
         option.series.push(dimData);
 
-        console.log(option,"我option22")
+        // console.log(option,"我option22")
         return option;
     }
 

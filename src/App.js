@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
-import { BrowserRouter as Router, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 // import ReactCssTransitionGroup from "react-addons-css-transition-group"
 import Routes from './router/index';
+import toast from './component/toast/toast';
 
 // import Home from './views/home';
 // import Eval from './views/eval';
@@ -13,6 +14,8 @@ function App() {
 
     // 函数组件中没有生命周期，那么可以使用 useEffect 来替代。如果你熟悉 React class 的生命周期函数，你可以把 useEffect Hook 看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个函数的组合
     useEffect(() => {
+        // console.log('111111');
+        window.toast = toast;
         // console.log('8899')
     })
 
@@ -20,12 +23,12 @@ function App() {
         <Router>
         <div className="App">
             <div className="AppMain">
-                <Switch>
+                {/* <Switch> */}
                     <Routes />
                     {/* <Route path="/home" component={Layouts}>
                     </Route>
                     <Route path="/eval" component={Home} /> */}
-                </Switch>
+                {/* </Switch> */}
             </div>
 
             <div className="AppFoot">
