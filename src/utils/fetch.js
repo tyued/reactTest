@@ -6,10 +6,9 @@ const service = axios.create({
 });
 
 // 接口列表池
-const requestList = [];
+let requestList = [];
 
 service.interceptors.request.use(config =>{
-    window.toast.show(true,0,'提示啦啦啦')
     requestList.push(config.url);
     loading.show()
     // console.log('这里是请求拦截器')
@@ -27,7 +26,7 @@ service.interceptors.response.use(
         const index = requestList.findIndex(text => text === response.config.url);
         requestList.splice(index, 1);
         // console.log(requestList,'requestList')
-        if(requestList.length==0) {
+        if(requestList.length===0) {
             console.log('进来了')
             loading.hide();
         }

@@ -5,16 +5,34 @@ const menus = [
         redirect:'/home'
     },
     {
-        key:'/home',
-        title:'首页',
-        component:'Home',
-        
+        key:'/login',
+        title:'登录',
+        component:'Login'
     },
     {
-        key:'/home/list',
-        title:'测试列表',
-        component:'List'
+        key:'/home',
+        title:'首页',
+        component:'Layer',
+        children:[
+            {
+                key:'/home/list',
+                title:'测试列表',
+                component:'List'
+            }
+        ]
     },
+
+    // {
+    //     key:'/home',
+    //     title:'首页',
+    //     component:'Home',
+        
+    // },
+    // {
+    //     key:'/home/list',
+    //     title:'测试列表',
+    //     component:'List'
+    // },
     {
         key:'/eval',
         title:'评价',

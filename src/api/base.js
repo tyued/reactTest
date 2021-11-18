@@ -97,3 +97,29 @@ export function getGradeDimensionRadar(query){
 
     })
 }
+
+
+export function getTokenByXxt(query) {
+    return fetch({
+        url: PathPer + '/auth/jwt/xxtToken',
+        method: 'post',
+        params: query
+    });
+}
+
+export function getUserBaseInfo(query){
+    return fetch({
+        url: PathPer + '/admin/user/front/info',
+        method: 'get',
+        params: query
+    });   
+}
+
+/**根据学号获取学生数据 */
+export function getUserBaseInfoByXh(query){
+    return fetch({
+        url: PathPer + '/base/jcXsjbsj/getXsjbsjByxh',
+        method: 'get',
+        params: query
+    });   
+}

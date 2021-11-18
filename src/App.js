@@ -31,7 +31,7 @@ function App() {
                 {/* </Switch> */}
             </div>
 
-            <div className="AppFoot">
+            {/* <div className="AppFoot">
                 <div className="foot_nav">
                     <NavLink activeClassName="activ"  to='/home'>
                         <div className="navImg nav-1"></div>
@@ -57,7 +57,7 @@ function App() {
                         <div className="navImg nav-5"></div>
                     </NavLink>
                 </div>
-            </div>
+            </div> */}
         </div>
         </Router>
     );

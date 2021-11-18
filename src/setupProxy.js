@@ -22,7 +22,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 module.exports = function(app) {
 
   app.use('/api', createProxyMiddleware({
-    target: 'http://192.168.3.18:8765',
+    // target: 'http://192.168.3.18:8765',
+    target: 'http://newoa.91118.com',
     changeOrigin: true,
     pathRewrite: {
         '^/api': '/api'

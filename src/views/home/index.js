@@ -17,7 +17,10 @@ class HomePage extends React.Component {
         selTimeAreaType:0
     }
 
+    userInfo = JSON.parse(window.sessionStorage.getItem('userinfo'));
+
     componentDidMount(){
+        console.log(this.userInfo,'userInfo')
         // console.log(window,window.toast)
         // setTimeout(() => {
         //     window.toast.show(true,0,'提示啦啦啦')
@@ -37,8 +40,8 @@ class HomePage extends React.Component {
             <div className="homePage">
                 <div className="home-page">
                     <div className="welcome">
-                        <div className="evalTit">公众号演示学校·学生发展核心素养</div>
-                        <div className="welcome-login">欢迎您，华盼妮老师!</div>
+                        <div className="evalTit">{this.userInfo.xxmc}·学生发展核心素养</div>
+                        <div className="welcome-login">欢迎您，{this.userInfo.name}老师!</div>
                         <div className="login-time">今天是 11月15日 星期一</div>
                     </div>
                     {/* 这里是组件 */}

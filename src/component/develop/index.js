@@ -25,6 +25,7 @@ class Develop extends React.Component {
         actions: defaultSettings.schoolStatisticsScope,
         curXnXq:{},                 // 当前的学年学期
     }
+    userInfo = JSON.parse(window.sessionStorage.getItem('userinfo'));
 
     componentDidMount() {
         this.init()
@@ -52,17 +53,17 @@ class Develop extends React.Component {
         }
         this.getCurrentXnxq();
         await this.getTeachList();
-        this.getDetailInfoByClass();
+        this.getDetailInfoByGrade();
     }
 
     getCurrentXnxq = async () => {
-        let res = await api.getCurrentXnxq({ xxdm:'1544' })
+        let res = await api.getCurrentXnxq({ xxdm:this.userInfo.xxdm })
         this.state.curXnXq = res.data;
     }
 
     getTeachList = async () => {
         let params = {};
-        params.teacherCode = '102';
+        params.teacherCode = this.userInfo.usercode;
         let res = await api.getTeacherEvaluationClassList(params);
         if(res.resultCode===1){
             let { teacherGradeList } = res.value;
@@ -73,11 +74,22 @@ class Develop extends React.Component {
         }
     }
 
-    getDetailInfoByClass = async () => {
-        // try{
+    changeGrade = (index) => {
+        // console.log(this,'切换年级')
+        this.setState({
+            activIndex:index
+        },() => {
+            this.getDetailInfoByGrade()
+        })
+    }
+
+    getDetailInfoByGrade = async () => {
+        // console.log('获取年级数据')
+        window.toast.show(true,0,'获取数据中...')
+        try{
             let evlScope = this.state.selTotil.length === 2? 0 : this.state.selTotil[0].id   //0全部  1校级,2非校级
             let params = {
-                schoolCode: '1544',
+                schoolCode: this.userInfo.xxdm,
                 gradeCode: this.state.teachGradeList[this.state.activIndex].gradeCode,
                 begin: this.state.curXnXq.gzkssj,
                 end: this.state.curXnXq.gzjssj,
@@ -89,10 +101,9 @@ class Develop extends React.Component {
                 api.getGradeDimensionRadar(params)
             ])
             this.formatData(res1,res2,res3);
-        // }catch(e){
+        }catch(e){
 
-        // }
-        
+        }
     }
 
     formatData(res1,res2,res3){
@@ -188,7 +199,7 @@ class Develop extends React.Component {
                 <div className="tabBox mt30">
                     {this.state.teachGradeList.map((item,index) => {
                         return (
-                            <div className={["tab",index === this.state.activIndex?'activ':null].join(' ')} key={item.gradeCode}>{item.gradeName}</div>
+                            <div className={["tab",index === this.state.activIndex?'activ':null].join(' ')} key={item.gradeCode} onClick={()=>this.changeGrade(index)}>{item.gradeName}</div>
                         )
                     })}
                 </div>

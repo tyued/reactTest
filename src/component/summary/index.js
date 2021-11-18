@@ -19,6 +19,7 @@ class Summary extends React.Component{
         a:1,
         b:2,
     }
+    userInfo = JSON.parse(window.sessionStorage.getItem('userinfo'));
 
     componentDidMount(){
         // console.log('这里是summary初始化')
@@ -38,7 +39,7 @@ class Summary extends React.Component{
     getInitData = async (index) => {
         let timeInfo = getSelTimeArea(index||0)
         let params = {
-            schoolCode: '1544',
+            schoolCode: this.userInfo.xxdm,
             begin: timeInfo.begin,
             end: timeInfo.end
         };

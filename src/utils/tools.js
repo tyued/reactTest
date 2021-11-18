@@ -195,3 +195,10 @@ export const findDimensionById = (dimensionId,dimensionList) => {
         }
     }
 };
+
+export const UrlToParams = (paramsStr) => {
+    let str = paramsStr.substr(1);
+    str = str.replace(/&/g, '","').replace(/=/g, '":"');
+    let objStr = '{"' + str + '"}';
+    return JSON.parse(objStr);
+}
