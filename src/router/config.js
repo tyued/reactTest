@@ -2,7 +2,7 @@ const menus = [
     {
         key:'/',
         title:'首页',
-        redirect:'/home'
+        redirect:'/login'
     },
     {
         key:'/login',
@@ -10,49 +10,42 @@ const menus = [
         component:'Login'
     },
     {
-        key:'/home',
-        title:'首页',
-        component:'Layer',
+        key:'/base',
+        title:'基础框架',
+        component:'layout',
         children:[
             {
-                key:'/home/list',
-                title:'测试列表',
-                component:'List'
+                key:'/base',
+                title:'首页',
+                redirect:'/base/home',
+            },
+            {
+                key:'/base/home',
+                title:'首页',
+                component:'Home',
+            },
+            {
+                key:'/base/eval',
+                title:'评价',
+                component:'Eval',
+            },
+            {
+                key:'/base/task',
+                title:'任务',
+                component:'Task',
+            },
+            {
+                key:'/base/record',
+                title:'记录',
+                component:'Record',
+            },
+            {
+                key:'/base/my',
+                title:'我的',
+                component:'My',
             }
         ]
     },
-
-    // {
-    //     key:'/home',
-    //     title:'首页',
-    //     component:'Home',
-        
-    // },
-    // {
-    //     key:'/home/list',
-    //     title:'测试列表',
-    //     component:'List'
-    // },
-    {
-        key:'/eval',
-        title:'评价',
-        component:'Eval'
-    },
-    {
-        key:'/task',
-        title:'任务',
-        component:'Task'
-    },
-    {
-        key:'/record',
-        title:'记录',
-        component:'Record'
-    },
-    {
-        key:'/my',
-        title:'我的',
-        component:'My'
-    }
 ]
 
 export default menus;

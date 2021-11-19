@@ -9,55 +9,45 @@ import Eval from '../eval/index';
 class Layer extends React.Component {
     
     componentDidMount() {
-        console.log(this,'123')
-    }
-
-    componentDidMount() {
-        this.props.history.push("/home/index?p="+Math.random())
+        // this.props.history.push("/home/index?p="+Math.random())
     }
 
     render(){
-        console.log('layer框架渲染')
+        // console.log('layer框架渲染')
         return (
             <div>
                 <div className="AppFoot">
                     <div className="foot_nav">
-                        <NavLink activeClassName="activ"  to='/home/index'>
+                        <NavLink activeClassName="activ"  to='/base/home'>
                             <div className="navImg nav-1"></div>
                         </NavLink>
                     </div>
                     <div className="foot_nav">
-                        <NavLink activeClassName="activ" to='/home/eval'>
+                        <NavLink activeClassName="activ" to='/base/eval'>
                             <div className="navImg nav-2"></div>
                         </NavLink>
                     </div>
                     <div className="foot_nav">
-                        <NavLink activeClassName="activ" to='/home/task'>
+                        <NavLink activeClassName="activ" to='/base/task'>
                             <div className="navImg nav-3"></div>
                         </NavLink>
                     </div>
                     <div className="foot_nav">
-                        <NavLink activeClassName="activ" to='/home/record'>
+                        <NavLink activeClassName="activ" to='/base/record'>
                             <div className="navImg nav-4"></div>
                         </NavLink>
                     </div>
                     <div className="foot_nav">
-                        <NavLink activeClassName="activ" to='/home/my'>
+                        <NavLink activeClassName="activ" to='/base/my'>
                             <div className="navImg nav-5"></div>
                         </NavLink>
                     </div>
                 </div>
                 {/* 这里要动态的获取路由... */}
-                <Route path="/home/eval" component={Eval}/>
-                <Route path="/home/index" component={Home}/>
+                {/* <Route path="/home/eval" component={Eval}/>
+                <Route path="/home/index" component={Home}/> */}
+                <Routes rootPath='base'/>
             </div>
-            // <Router>
-            //     <div>
-            //         <Routes />
-            //     </div>
-                
-           
-            // </Router>
         )
     }
 }

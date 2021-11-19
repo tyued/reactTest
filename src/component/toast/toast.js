@@ -40,7 +40,7 @@ class toast{
     }
 
     removeNode(){
-        console.log(this.domNode,'this.domNode')
+        // console.log(this.domNode,'this.domNode')
         try{
             document.body.removeChild(this.domNode);
         }catch(e){

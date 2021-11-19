@@ -20,7 +20,7 @@ class HomePage extends React.Component {
     userInfo = JSON.parse(window.sessionStorage.getItem('userinfo'));
 
     componentDidMount(){
-        console.log(this.userInfo,'userInfo')
+        // console.log(this.userInfo,'userInfo')
         // console.log(window,window.toast)
         // setTimeout(() => {
         //     window.toast.show(true,0,'提示啦啦啦')

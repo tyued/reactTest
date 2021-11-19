@@ -27,7 +27,7 @@ service.interceptors.response.use(
         requestList.splice(index, 1);
         // console.log(requestList,'requestList')
         if(requestList.length===0) {
-            console.log('进来了')
+            // console.log('进来了')
             loading.hide();
         }
 

@@ -50,7 +50,7 @@ class Login extends React.Component {
         // await this.getConfig();
         window.sessionStorage.setItem('isStudent','false');
         // window.localStorage.setItem('warning','true');
-        this.props.history.push("/home?p="+Math.random())
+        this.props.history.push("/base?p="+Math.random())
     }
     
     handleChange = (itemName) => {

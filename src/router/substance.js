@@ -3,10 +3,10 @@ import List from '../views/list';
 import Eval from '../views/eval';
 import Task from '../views/task';
 import Record from '../views/record';
-import Layer from '../views/layout';
+import layout from '../views/layout';
 import My from '../views/my';
 import Login from '../views/login/login';
 
 export default {
-    Home,List,Eval,Task,Record,My,Login,Layer
+    Home,List,Eval,Task,Record,My,Login,layout
 }

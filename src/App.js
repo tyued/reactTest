@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 // import ReactCssTransitionGroup from "react-addons-css-transition-group"
 import Routes from './router/index';
 import toast from './component/toast/toast';
+
+import Home from './views/home/index';
+import Eval from './views/eval/index';
 
 // import Home from './views/home';
 // import Eval from './views/eval';
@@ -23,12 +26,15 @@ function App() {
         <Router>
         <div className="App">
             <div className="AppMain">
+                {/* <Route path="/eval" component={Eval}/> */}
+                
                 {/* <Switch> */}
-                    <Routes />
+                    <Routes/>
                     {/* <Route path="/home" component={Layouts}>
                     </Route>
                     <Route path="/eval" component={Home} /> */}
                 {/* </Switch> */}
+                
             </div>
 
             {/* <div className="AppFoot">

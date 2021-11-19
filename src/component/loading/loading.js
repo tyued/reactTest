@@ -28,7 +28,7 @@ class Loading{
     }
 
     removeNode(){
-        console.log(this.domNode,this.isExistNode,'this.domNode')
+        // console.log(this.domNode,this.isExistNode,'this.domNode')
         try{
             document.body.removeChild(this.domNode);
         }catch(e){
