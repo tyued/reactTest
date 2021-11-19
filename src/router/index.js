@@ -1,13 +1,12 @@
 import React from 'react';
 import { Redirect, Route, Switch } from "react-router";
-import menus from './config'
-import substance from './substance'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import menus from './config';
+import substance from './substance';
+import AnimatedSwitch from './AnimatedSwitch';
 
 class CRouter extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
+    
     createMenu = (item) => {
         if (!item.redirect){
             return (
@@ -61,10 +60,14 @@ class CRouter extends React.Component {
      * @returns 
      */
     render(){
+        // console.log(this,'this')
         return (
             <Switch>
                 {this.currentMenus().map(this.createMenu)}
             </Switch>
+            // <AnimatedSwitch>
+            //     {this.currentMenus().map(this.createMenu)}
+            // </AnimatedSwitch>
         )
     }
 }

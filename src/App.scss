@@ -19,6 +19,7 @@ em,i{
   text-align: left;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -47,11 +48,30 @@ em,i{
   height: 40vmin;
   pointer-events: none;
 }
+.router{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.outerPage-enter {
+  animation-name: fadeInRight;
+  animation-duration: .8s;
+  z-index: 10;
+}
+
+.outerPage-exit {
+  animation-name: fadeOutRight;
+  animation-duration: .8s;
+  z-index: 8;
 }
 
 .App-header {
@@ -84,7 +104,7 @@ em,i{
   display: flex;
   flex-direction: row;
   background: #FFF;
-  z-index: 5;
+  z-index: 50;
   .foot_nav{
     flex: 1;
     display: flex;

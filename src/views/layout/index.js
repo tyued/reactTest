@@ -1,10 +1,9 @@
 import React from 'react';
 // import Eval from '../eval';
 // import ListPage from '../list';
-import { Route, Switch, useRouteMatch, Router, NavLink, BrowserRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Routes from '../../router/index';
-import Home from '../home/index';
-import Eval from '../eval/index';
+import AnimatedSwitch from '../../router/AnimatedSwitch';
 
 class Layer extends React.Component {
     
@@ -13,7 +12,7 @@ class Layer extends React.Component {
     }
 
     render(){
-        // console.log('layer框架渲染')
+        console.log('layer框架渲染')
         return (
             <div>
                 <div className="AppFoot">
@@ -46,7 +45,9 @@ class Layer extends React.Component {
                 {/* 这里要动态的获取路由... */}
                 {/* <Route path="/home/eval" component={Eval}/>
                 <Route path="/home/index" component={Home}/> */}
-                <Routes rootPath='base'/>
+                <AnimatedSwitch>
+                    <Routes rootPath='base'/>
+                </AnimatedSwitch>
             </div>
         )
     }

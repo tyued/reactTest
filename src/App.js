@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // import ReactCssTransitionGroup from "react-addons-css-transition-group"
 import Routes from './router/index';
 import toast from './component/toast/toast';
+import 'animate.css'
 
-import Home from './views/home/index';
-import Eval from './views/eval/index';
-
+// import Home from './views/home/index';
+// import Eval from './views/eval/index';
 // import Home from './views/home';
 // import Eval from './views/eval';
 // import ListPage from './views/list';
