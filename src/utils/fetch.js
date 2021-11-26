@@ -2,7 +2,7 @@ import axios from 'axios';
 import loading from '../component/loading/loading';
 
 const service = axios.create({
-    timeout: 20000
+    timeout: 10000
 });
 
 // 接口列表池
@@ -13,9 +13,18 @@ service.interceptors.request.use(config =>{
     loading.show()
     // console.log('这里是请求拦截器')
     // console.log(config);
+
     config.headers.Authorization = window.sessionStorage.getItem('token'); 
+
+    // let cancel;
+    // config.cancelToken = new axios.CancelToken(function(c){
+    //     console.log('77777',c)
+    //     cancel = c
+    // })
+
     return config
 }, error =>{
+    loading.hide();
     Promise.reject(error)
 })
 
@@ -38,8 +47,8 @@ service.interceptors.response.use(
         }
     },
     error => {
+        loading.hide();
         if (error.response) {
-            loading.hide();
             requestList = [];
             switch (error.response.status) {
                 case 401:

@@ -35,7 +35,10 @@ class toast{
 
     createNode(){
         return (
-            <div className="loading">{this.context}</div>
+            <React.Fragment>
+            <div className="Fragment"></div>
+            <div className="loading">{this.context}</div> 
+            </React.Fragment>
         )
     }
 
@@ -75,7 +78,7 @@ class toast{
             this.removeTimer = setTimeout(()=>{
                 this.removeNode();
                 this.isExistNode = false;
-            },1500)
+            },500)
         }
     }
 }
