@@ -1,9 +1,9 @@
 import React from 'react';
 // import Eval from '../eval';
-// import ListPage from '../list';
+// import Task from '../task';
 import { NavLink } from 'react-router-dom';
 import Routes from '../../router/index';
-import AnimatedSwitch from '../../router/AnimatedSwitch';
+// import AnimatedSwitch from '../../router/AnimatedSwitch';
 
 class Layer extends React.Component {
     
@@ -45,9 +45,13 @@ class Layer extends React.Component {
                 {/* 这里要动态的获取路由... */}
                 {/* <Route path="/home/eval" component={Eval}/>
                 <Route path="/home/index" component={Home}/> */}
-                <AnimatedSwitch>
+                {/* <AnimatedSwitch> */}
+                    {/* <Switch>
+                        <Route path="/base/eval" component={Eval}/>
+                        <Route path="/base/task" component={Task}/>
+                    </Switch> */}
                     <Routes rootPath='base'/>
-                </AnimatedSwitch>
+                {/* </AnimatedSwitch> */}
             </div>
         )
     }

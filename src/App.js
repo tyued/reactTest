@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+// import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // import ReactCssTransitionGroup from "react-addons-css-transition-group"
 import Routes from './router/index';
 import toast from './component/toast/toast';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from "react-router";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import menus from './config';
 import substance from './substance';
 import AnimatedSwitch from './AnimatedSwitch';
@@ -31,7 +31,6 @@ class CRouter extends React.Component {
      * @returns 
      */
     findCurrentNodeMenus = (nodeList,targetPath,index=0) => {  
-        // console.log(nodeList,'nodeList')
         for(let i=0;i<nodeList.length;i++){
             if(nodeList[i].key==='/'+targetPath.split('/').slice(0,index+1).join('/')){
                 if(targetPath.split('/').length>index+1){
@@ -49,6 +48,7 @@ class CRouter extends React.Component {
      * @returns 
      */
     currentMenus = () => {
+        // console.log(this.props.rootPath,'this.props.rootPath')
         let currentMenu;
         currentMenu = (!this.props.rootPath || this.props.rootPath === 'root') ? menus : this.findCurrentNodeMenus(menus,this.props.rootPath);
         // console.log(currentMenu,'currentMenu')
@@ -60,14 +60,24 @@ class CRouter extends React.Component {
      * @returns 
      */
     render(){
-        // console.log(this,'this')
-        return (
-            <Switch>
+        let RouterCont;
+        if(this.props.rootPath){
+            RouterCont = (<AnimatedSwitch>
                 {this.currentMenus().map(this.createMenu)}
-            </Switch>
+            </AnimatedSwitch>)
+        }else{
+            RouterCont = (<Switch>
+                {this.currentMenus().map(this.createMenu)}
+            </Switch>)
+        }
+        return (
+            // <Switch>
+            //     {this.currentMenus().map(this.createMenu)}
+            // </Switch>
             // <AnimatedSwitch>
             //     {this.currentMenus().map(this.createMenu)}
             // </AnimatedSwitch>
+            RouterCont
         )
     }
 }

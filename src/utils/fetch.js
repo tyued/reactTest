@@ -39,6 +39,7 @@ service.interceptors.response.use(
     },
     error => {
         if (error.response) {
+            loading.hide();
             requestList = [];
             switch (error.response.status) {
                 case 401:
