@@ -5,13 +5,17 @@ import 'animate.css';
 import App from './App';
 // import ShoppingList from './views/home/index'
 import * as serviceWorker from './serviceWorker';
+import store from './redux/store'
+import {Provider} from 'react-redux'
 // import Router from './Router'
 
 // console.log(React,'React');
 // React.prototype.$moment = moment;
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     // <ShoppingList value='我的天啊'></ShoppingList>,
     // <Router />,
     document.getElementById('root')

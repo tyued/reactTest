@@ -60,6 +60,7 @@ class CRouter extends React.Component {
      * @returns 
      */
     render(){
+        console.log('Routes自定义组件渲染')
         let RouterCont;
         if(this.props.rootPath){
             RouterCont = (<AnimatedSwitch>

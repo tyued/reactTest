@@ -2,6 +2,9 @@ import React from 'react'
 import * as api from '../../api/base'
 import { UrlToParams } from '../../utils/tools'
 
+import { setUserInfo } from '../../redux/actions/userInfo'
+import {connect} from 'react-redux'
+
 import './login.scss'
 
 class Login extends React.Component {
@@ -43,6 +46,8 @@ class Login extends React.Component {
         delete res.menus;
         delete res.elements;
         window.localStorage.setItem('xxdm',res.xxdm);
+        this.props.setUserInfo(res);
+        console.log(this,'这里是this')
         window.sessionStorage.setItem('userinfo',JSON.stringify(res));
         // //获取 角色的权限信息
         // await this.getUserPermission();
@@ -80,4 +85,15 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+
+export default connect(
+    state =>({
+        userInfo:state.userInfo
+    }),
+    {setUserInfo}
+)(Login)
+
+
+
+
+// export default Login
