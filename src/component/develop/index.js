@@ -102,7 +102,7 @@ class Develop extends React.Component {
             ])
             this.formatData(res1,res2,res3);
         }catch(e){
-
+            console.log(e)
         }
     }
 

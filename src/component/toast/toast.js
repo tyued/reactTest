@@ -47,7 +47,7 @@ class toast{
         try{
             document.body.removeChild(this.domNode);
         }catch(e){
-
+            console.log(e)
         }
         this.isExistNode = false;
         // console.log('移除节点')

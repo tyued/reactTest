@@ -32,7 +32,7 @@ class Loading{
         try{
             document.body.removeChild(this.domNode);
         }catch(e){
-
+            console.log(e)
         }
     }
 
