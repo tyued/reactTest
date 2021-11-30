@@ -1,11 +1,13 @@
-import { decorate, observable } from  'mobx'
+import { makeAutoObservable } from  'mobx'
+import { observer } from 'mobx-react'
 
 class Store{
     text = 'hello';
     title = '';
+
+    constructor(){
+        makeAutoObservable(this)
+    }
 }
 
-decorate(Store,{
-    text:observable,
-    title:observable
-})
+export default Store;
