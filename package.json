@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.16.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,6 +12,8 @@
     "echarts": "^5.2.2",
     "http-proxy-middleware": "^2.0.1",
     "lodash": "^4.17.21",
+    "mobx": "^6.3.8",
+    "mobx-react": "^7.2.1",
     "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-addons-css-transition-group": "^15.6.2",
@@ -71,5 +74,18 @@
   "devDependencies": {
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.3"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ],
+    "presets": [
+      "react-app"
+    ]
   }
 }
